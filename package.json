@@ -1,0 +1,16 @@
+﻿{
+	"name": "Links",
+	"version": "1.0.0",
+	"description": "Extending the functionaity of the target attribute",
+	"main": "links.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MSLGroupUK/Links.git"
+	},
+	"author": "MSLGroup UK",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/MSLGroupUK/Links/issues"
+	},
+	"homepage": "https://github.com/MSLGroupUK/Links"
+}
