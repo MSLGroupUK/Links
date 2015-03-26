@@ -26,5 +26,5 @@ Add a `data-target` attibute to the anchor and pass through a target as defined 
 
 ##Release History
 
-v1.0.1 - Updated docs, added code linting
-v1.0.0 - Initial release
+* v1.0.1 - Updated docs, added code linting
+* v1.0.0 - Initial release
