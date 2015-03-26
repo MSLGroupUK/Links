@@ -70,13 +70,16 @@
 		// scroll to offset of target
 		$(Links.viewport).stop().animate({
 			scrollTop: Math.ceil($(href).offset().top) - Links.offsetValue
-		}, Links.scrollDuration).promise().then(function () { });
-	},
-	pageTop: function () {
-		// scroll to top
-		$(Links.viewport).stop().animate({
-			scrollTop: 0
 		}, Links.scrollDuration);
+	},
+	pageTop: function (href) {
+		// check if page has scrolled
+		if ($(window).scrollTop() > 0) {
+			// scroll to top
+			$(Links.viewport).stop().animate({
+				scrollTop: 0
+			}, Links.scrollDuration);
+		}
 	},
 	skip: function (href) {
 		// focus accessibility links
@@ -90,17 +93,17 @@
 		var linksBound = false;
 
 		// detect if any events are bound, !(!!) detects if item is not false, null or undefined, not neccessarily a check for a valid event object
-		var eventAll = this.getBoundEvents($this);
-		if (!(!!eventAll)) return false;
+		var allEvent = this.getBoundEvents($this);
+		if (!(!!allEvent)) return false;
 
 		// get click event
-		var eventClick = eventAll[this.event];
-		if (!(!!eventClick)) return false;
+		var targetEvent = allEvent[this.event];
+		if (!(!!targetEvent)) return false;
 
 		// loop through bound click events
-		for (var i = 0; i < eventClick.length; i++) {
+		for (var i = 0; i < targetEvent.length; i++) {
 			// check if event namespace exists
-			if (eventClick[i].namespace === this.eventNamespace) {
+			if (targetEvent[i].namespace === this.eventNamespace) {
 				linksBound = true;
 			}
 		}
@@ -114,13 +117,10 @@
 		switch (target) {
 			case this.targetNewWindow:
 				return this.newWindow;
-				break;
 			case this.targetOnPage:
 				return this.onPage;
-				break;
 			case this.targetSkip:
 				return this.skip;
-				break;
 			case this.targetPageTop:
 				return this.pageTop;
 		}
